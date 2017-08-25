@@ -12,47 +12,40 @@ fs.readFile(`${__dirname}/assets/palette-bitmap.bmp`, (err, data) => {
 
   let bmp = new Bitmap(data);
 
-
-  // (err, data) => {
-  //   if(err) console.error(err);
-  //   for(var i = 0; i< arr.length; i+=4) {
-  //     arr.push(bmp.pixelArray.splice(0,4));
-  //   }
-  //   console.log(data);
-  //   (err, data) => {
-  //     if(err) console.error(err);
-  //     console.log(data);
-  //     console.log(arr);
-  //   };
-  // };
-  // console.log(bmp);
-
-  // arr.push(bmp.pixelArray);
-  // console.log('Here is the array - ', arr);
-  // console.log('i am a bmp', bmp);
   arr.push(bmp.pixelArray);
-  console.log('array', arr);
-  let x = [];
+
+  // for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
+  //   var gray = (bmp.pixelArray[i] + bmp.pixelArray[i+1] + bmp.pixelArray[i+2])/3
+  //   bmp.pixelArray[i] = gray
+  //   bmp.pixelArray[i+1] = gray
+  //   bmp.pixelArray[i+2] = gray
+  // }
+
+  // for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
+  //   // var invert = (255-bmp.pixelArray[i] + bmp.pixelArray[i+1] + bmp.pixelArray[i+2])/3
+  //   bmp.pixelArray[i] = 255 - bmp.pixelArray[i]
+  //   bmp.pixelArray[i+1] = 255 - bmp.pixelArray[i+1]
+  //   bmp.pixelArray[i+2] =255- bmp.pixelArray[i+2]
+  // }
+
   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
-    // console.log(bmp.pixelArray[i], bmp.pixelArray[i+1], bmp.pixelArray[i+2], bmp.pixelArray[i+3]);
-
-    let chunks = [bmp.pixelArray[i], bmp.pixelArray[i+1], bmp.pixelArray[i+2], bmp.pixelArray[i+3]];
-    x.push(chunks);
+    // var invert = (255-bmp.pixelArray[i] + bmp.pixelArray[i+1] + bmp.pixelArray[i+2])/3
+    bmp.pixelArray[i] = 0
+    bmp.pixelArray[i+1] = 0
+    bmp.pixelArray[i+2] = 0
   }
-  console.log('here are chunks', x);
-  // console.log(x.map());
-  let grayArr = [];
-  x.forEach(ele => {
-    ele.forEach(itx => {
-      if(itx === 0) grayArr.push(itx);
-      else{
-        grayArr.push(Math.floor((ele.reduce((acc, cur) => acc + cur))/3));
-      }
-    });
+
+
+  let fileContent = bmp.allData;
+
+  let filePath = './assets/grayScaleOne.bmp';
+
+  fs.writeFile(filePath, fileContent, (err) => {
+    if (err) throw err;
+
+    console.log('The file was succesfully saved!');
+
+
   });
-
-  console.log(grayArr);
-
-  // let hex = Buffer.from(grayArr).toString('hex');
-  // console.log(hex);
 });
+// console.log(grayArr)
