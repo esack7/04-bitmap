@@ -12,12 +12,11 @@ fs.readFile(`${__dirname}/assets/palette-bitmap.bmp`, (err, data) => {
 
   let bmp = new Bitmap(data);
 
-  tranf.black(bmp);
+  tranf.gray(bmp);
 
   let fileContent = bmp.allData;
 
-
-  let filePath = `./assets/${this.key}.bmp`;
+  let filePath = `./assets/${Object.keys(tranf)}.bmp`;
 
   fs.writeFile(filePath, fileContent, (err) => {
     if (err) throw err;
