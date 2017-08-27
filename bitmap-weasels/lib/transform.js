@@ -2,15 +2,16 @@
 
 const blarg = module.exports = {};
 
+let nameKey;
 
-// blarg.gray = function(bmp) {
-//   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
-//     var gray = (bmp.pixelArray[i] + bmp.pixelArray[i+1] + bmp.pixelArray[i+2])/3;
-//     bmp.pixelArray[i] = gray;
-//     bmp.pixelArray[i+1] = gray;
-//     bmp.pixelArray[i+2] = gray;
-//   }
-// };
+blarg.gray = function(bmp) {
+  for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
+    var gray = (bmp.pixelArray[i] + bmp.pixelArray[i+1] + bmp.pixelArray[i+2])/3;
+    bmp.pixelArray[i] = gray;
+    bmp.pixelArray[i+1] = gray;
+    bmp.pixelArray[i+2] = gray;
+  }
+};
 
 blarg.invert = function(bmp){
   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
@@ -20,10 +21,10 @@ blarg.invert = function(bmp){
   }
 };
 
-// blarg.black = function(bmp) {
-//   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
-//     bmp.pixelArray[i] = 0;
-//     bmp.pixelArray[i+1] = 0;
-//     bmp.pixelArray[i+2] = 0;
-//   }
-// };
+blarg.black = function(bmp) {
+  for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
+    bmp.pixelArray[i] = 0;
+    bmp.pixelArray[i+1] = 0;
+    bmp.pixelArray[i+2] = 0;
+  }
+};
