@@ -8,14 +8,6 @@ const fs = require('fs');
 let bmp;
 let nameKeyThing;
 
-// let nameKeyFunc = function() {
-//   for (var i = 0; i < 3; i++) {
-//     nameKeyThing = Object.keys(tranf)[i]
-//     console.log('i am a name i think', nameKeyThing)
-//   }
-// };
-// nameKeyFunc();
-
 readWrite.read = function() {
   fs.readFile(`${__dirname}/../assets/palette-bitmap.bmp`, (err, data) => {
     if(err) console.error(err);
@@ -24,20 +16,18 @@ readWrite.read = function() {
       nameKeyThing = Object.keys(tranf)[0]
       console.log('1', nameKeyThing)
       tranf.invert(bmp)
-      readWrite.write();
     })();
     (function(){
       nameKeyThing = Object.keys(tranf)[1]
       console.log('2', nameKeyThing)
       tranf.gray(bmp)
-      readWrite.write();
     })();
-    (function(){
-      nameKeyThing = Object.keys(tranf)[2]
-      console.log('1', nameKeyThing)
-      tranf.black(bmp)
-      readWrite.write();
-    })();
+    // (function(){
+    //   nameKeyThing = Object.keys(tranf)[2]
+    //   console.log('1', nameKeyThing)
+    //   tranf.black(bmp)
+    //   readWrite.write();
+    // })();
 
     // tranf.invert(bmp);
     // tranf.gray(bmp);
