@@ -31,7 +31,7 @@ readWrite.write = (fileContent, filePath) => {
   filePath = `./assets/${readWrite.nameKeyThing}.bmp`;
   fs.writeFile(filePath, fileContent, (err) => {
     if (err) throw err;
-    console.log(`${readWrite.nameKeyThing} has been created!`);
+    console.log(`Created a Bitmap!`);
   });
 };
 
