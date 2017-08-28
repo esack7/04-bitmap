@@ -9,5 +9,3 @@ module.exports = function(buffer) {
   this.height = buffer.readInt32LE(22);
   this.pixelArray = buffer.slice(54, this.offset);
 };
-
-console.log(module.pixelArray);

@@ -2,9 +2,7 @@
 
 const blarg = module.exports = {};
 
-// let nameKey;
-
-blarg.gray = function(bmp) {
+blarg.gray = (bmp) => {
   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
     var gray = (bmp.pixelArray[i] + bmp.pixelArray[i+1] + bmp.pixelArray[i+2])/3;
     bmp.pixelArray[i] = gray;
@@ -13,7 +11,7 @@ blarg.gray = function(bmp) {
   }
 };
 
-blarg.invert = function(bmp){
+blarg.invert = (bmp) => {
   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
     bmp.pixelArray[i] = 255 - bmp.pixelArray[i];
     bmp.pixelArray[i+1] = 255 - bmp.pixelArray[i+1];
@@ -21,7 +19,7 @@ blarg.invert = function(bmp){
   }
 };
 
-blarg.black = function(bmp) {
+blarg.black = (bmp) => {
   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
     bmp.pixelArray[i] = 0;
     bmp.pixelArray[i+1] = 0;
