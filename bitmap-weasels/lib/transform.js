@@ -2,7 +2,7 @@
 
 const blarg = module.exports = {};
 
-let nameKey;
+// let nameKey;
 
 blarg.gray = function(bmp) {
   for (var i = 0; i < bmp.pixelArray.length; i+= 4) {
