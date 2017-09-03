@@ -21,6 +21,7 @@
     }
   },
   "scripts": {
+    "bitmap": "node index.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "lint": "eslint .",
