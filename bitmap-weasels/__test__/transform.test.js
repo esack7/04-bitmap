@@ -1,8 +1,15 @@
 'use strict';
 
-const transTest = require('../lib/transform')
+const transTest = require('../lib/transform');
+const fs = require('fs');
 
-
-describe('Testing the transform methods', function() {
-  
+describe('Testing transform.js', function() {
+  beforeAll(done => {
+    done();
+  });
+  describe('default properties', () => {
+    test('', done => {
+      done();
+    });
+  });
 });
